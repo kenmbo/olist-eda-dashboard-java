@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: olist-eda-dashboard-spring
+
+olist:
+  database:
+    path: ${OLIST_DB_PATH:}
+  cors:
+    origins: ${CORS_ORIGINS:}

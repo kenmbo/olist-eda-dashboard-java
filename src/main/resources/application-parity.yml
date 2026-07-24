@@ -1,0 +1,11 @@
+spring:
+  config:
+    activate:
+      on-profile: parity
+
+# Supply the canonical source SQLite file explicitly at runtime, for example:
+# OLIST_PARITY_DB_PATH=/path/to/olist.sqlite ./mvnw spring-boot:run -Dspring-boot.run.profiles=parity
+olist:
+  database:
+    path: ${OLIST_PARITY_DB_PATH:}
+
