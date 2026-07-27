@@ -1,6 +1,10 @@
 spring:
   application:
     name: olist-eda-dashboard-spring
+  sql:
+    init:
+      # The analytics database is externally supplied and always opened read-only.
+      mode: never
 
 olist:
   database:

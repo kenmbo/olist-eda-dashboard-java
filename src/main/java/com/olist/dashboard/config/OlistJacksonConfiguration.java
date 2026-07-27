@@ -30,4 +30,3 @@ public class OlistJacksonConfiguration {
                 .changeDefaultPropertyInclusion(ignored -> JsonInclude.Value.ALL_ALWAYS);
     }
 }
-

@@ -8,4 +8,3 @@ spring:
 olist:
   database:
     path: ${OLIST_PARITY_DB_PATH:}
-
