@@ -3,9 +3,9 @@ name: Continuous Integration
 
 on:
   push:
-    branches: [ main, develop, feat/github-actions ]
+    branches: [ main, develop, ci/github-actions ]
   pull_request:
-    branches: [ main, develop, feat/github-actions ]
+    branches: [ main, develop, ci/github-actions ]
 
 jobs:
   build-and-test:
