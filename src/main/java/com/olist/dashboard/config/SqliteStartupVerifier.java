@@ -1,30 +1,31 @@
-import java.sql.SQLException;
-import java.sql.Statement;
-
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
+
+import com.olist.dashboard.repository.SqlResourceLoader;
 
 /** Fails startup clearly unless the configured SQLite database can be queried read-only. */
 @Component
 public class SqliteStartupVerifier implements ApplicationRunner {
 
-    private final OlistDatabaseProperties databaseProperties;
+    private final NamedParameterJdbcTemplate jdbcTemplate;
+    private final SqlResourceLoader sqlResourceLoader;
 
-    public SqliteStartupVerifier(OlistDatabaseProperties databaseProperties) {
-        this.databaseProperties = databaseProperties;
+    public SqliteStartupVerifier(
+            NamedParameterJdbcTemplate jdbcTemplate,
+            SqlResourceLoader sqlResourceLoader) {
+        this.jdbcTemplate = jdbcTemplate;
+        this.sqlResourceLoader = sqlResourceLoader;
     }
 
     @Override
     public void run(ApplicationArguments args) {
-        String jdbcUrl = databaseProperties.readOnlyJdbcUrl();
-        try (Connection connection = DriverManager.getConnection(jdbcUrl);
-             Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery("SELECT 1")) {
-            if (!resultSet.next() || resultSet.getInt(1) != 1) {
+        try {
+            Integer result = jdbcTemplate.queryForObject(
+                    sqlResourceLoader.load("shared/select-one.sql"), Map.of(), Integer.class);
+            if (!Integer.valueOf(1).equals(result)) {
                 throw new IllegalStateException("SQLite read-only smoke query did not return 1");
             }
-        } catch (SQLException exception) {
+        } catch (DataAccessException exception) {
             throw new IllegalStateException(
                     "Unable to open OLIST_DB_PATH as a readable SQLite database in read-only mode", exception);
         }
