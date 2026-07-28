@@ -78,7 +78,7 @@ Goal: establish a reproducible source reference before writing the Spring implem
 
 - [ ] Record the source repository commit hash in `docs/migration-baseline.md`.
 - [ ] Record the SQLite database filename, size, and SHA-256 hash in `docs/migration-baseline.md` without copying the database into the Java repository.
-- [ ] Confirm the FastAPI backend starts from the source repository against the canonical database.
+- [x] Confirm the FastAPI backend starts from the source repository against the canonical database.
 - [ ] Run every in-scope FastAPI endpoint and record whether it succeeds.
 - [ ] Create `docs/api-contracts.md` with each in-scope endpoint's path, status, content type, JSON keys, orientation, ordering, date representation, null behavior, and important numeric behavior.
 - [ ] Capture compact representative JSON fixtures under `src/test/resources/contracts/fastapi/`; avoid committing full-dataset responses when they are excessively large.
@@ -86,7 +86,7 @@ Goal: establish a reproducible source reference before writing the Spring implem
 - [ ] Record the observed Sunday-first weekday behavior of `/api/orders/hourly`.
 - [ ] Record the exact serialized `year_month` representation returned by `/api/sales/monthly`.
 - [ ] Record category and month ordering for `/api/categories/monthly-sales`.
-- [ ] Confirm the filtered `/api/categories/weights` handler is the migration contract and capture its top-five category order and filtered array lengths.
+- [x] Confirm the filtered `/api/categories/weights` handler is the migration contract and capture its top-five category order and filtered array lengths.
 - [ ] Record the source's successful-response floating-point values at enough precision to define comparison tolerances.
 - [ ] Mark the five deferred endpoints in `docs/api-contracts.md` and do not treat their absence from Spring as a parity failure.
 
@@ -101,10 +101,10 @@ Goal: establish a reproducible source reference before writing the Spring implem
 ### Acceptance Criteria
 
 - [ ] The source commit and database hash are recorded.
-- [ ] All 17 in-scope endpoints have an explicit successful-response contract or a documented source blocker.
-- [ ] Large-response invariants and representative fixtures are available without committing the full Olist database.
+- [x] All 17 in-scope endpoints have an explicit successful-response contract or a documented source blocker.
+- [x] Large-response invariants and representative fixtures are available without committing the full Olist database.
 - [ ] Date, ordering, label, null, and numeric comparison rules are documented.
-- [ ] Deferred endpoints are clearly excluded from main-migration parity checks.
+- [x] Deferred endpoints are clearly excluded from main-migration parity checks.
 
 ## Milestone 1 — Scaffold The Spring Boot Application
 
@@ -112,20 +112,20 @@ Goal: create a minimal Java 26 application that builds, tests, starts, and can r
 
 ### Tasks
 
-- [ ] Scaffold a Maven Spring Boot 4.1.x project using Java 26.
-- [ ] Use `com.olist.dashboard` as the base package unless the user specifies another package before scaffolding.
-- [ ] Set the Maven artifact name to `olist-eda-dashboard-spring`.
-- [ ] Add and commit Maven Wrapper files compatible with Maven 3.9.16.
-- [ ] Add Spring MVC, Spring JDBC, Jackson, SQLite JDBC, and Spring test dependencies.
-- [ ] Pin the SQLite JDBC driver version explicitly if it is not managed by Spring Boot.
-- [ ] Establish packages for `config`, `controller`, `service`, `repository`, and `dto` or `response`.
-- [ ] Add `application.yml` with environment-backed database and CORS configuration.
-- [ ] Support a configurable database path such as `OLIST_DB_PATH`; do not depend on the process working directory.
-- [ ] Support comma-separated `CORS_ORIGINS` with the same empty-value behavior documented for FastAPI unless an intentional difference is approved.
-- [ ] Add a local/parity profile that can use the source database through an environment variable without hardcoding it as the production default.
-- [ ] Add a context-load test.
-- [ ] Add a database smoke test that performs a read-only query such as `SELECT 1` and verifies Java 26/SQLite JDBC compatibility.
-- [ ] Add `.gitignore` rules for Maven output, IDE state, local environment files, generated parity artifacts, and copied database files.
+- [x] Scaffold a Maven Spring Boot 4.1.x project using Java 26.
+- [x] Use `com.olist.dashboard` as the base package unless the user specifies another package before scaffolding.
+- [x] Set the Maven artifact name to `olist-eda-dashboard-spring`.
+- [x] Add and commit Maven Wrapper files compatible with Maven 3.9.16.
+- [x] Add Spring MVC, Spring JDBC, Jackson, SQLite JDBC, and Spring test dependencies.
+- [x] Pin the SQLite JDBC driver version explicitly if it is not managed by Spring Boot.
+- [x] Establish packages for `config`, `controller`, `service`, `repository`, and `dto` or `response`.
+- [x] Add `application.yml` with environment-backed database and CORS configuration.
+- [x] Support a configurable database path such as `OLIST_DB_PATH`; do not depend on the process working directory.
+- [x] Support comma-separated `CORS_ORIGINS` with the same empty-value behavior documented for FastAPI unless an intentional difference is approved.
+- [x] Add a local/parity profile that can use the source database through an environment variable without hardcoding it as the production default.
+- [x] Add a context-load test.
+- [x] Add a database smoke test that performs a read-only query such as `SELECT 1` and verifies Java 26/SQLite JDBC compatibility.
+- [x] Add `.gitignore` rules for Maven output, IDE state, local environment files, generated parity artifacts, and copied database files.
 
 ### Testing Steps
 
@@ -136,11 +136,11 @@ Goal: create a minimal Java 26 application that builds, tests, starts, and can r
 
 ### Acceptance Criteria
 
-- [ ] `./mvnw test` passes under Java 26.
-- [ ] The application starts with an explicit database path.
-- [ ] A missing or unreadable database produces a clear startup or request error and never creates a silent empty replacement.
-- [ ] No production code depends on an absolute developer-machine path.
-- [ ] No API migration endpoints have been prematurely implemented.
+- [x] `./mvnw test` passes under Java 26.
+- [x] The application starts with an explicit database path.
+- [x] A missing or unreadable database produces a clear startup or request error and never creates a silent empty replacement.
+- [x] No production code depends on an absolute developer-machine path.
+- [x] No API migration endpoints have been prematurely implemented.
 
 ## Milestone 2 — Build Shared Data Access And API Foundations
 
@@ -148,19 +148,19 @@ Goal: establish reusable infrastructure before porting feature endpoints.
 
 ### Tasks
 
-- [ ] Configure the SQLite `DataSource` and `NamedParameterJdbcTemplate`.
-- [ ] Decide and document whether the production connection should be explicitly read-only and whether the pool size needs a SQLite-specific limit.
-- [ ] Add a consistent mechanism for loading SQL from `src/main/resources/sql/`.
-- [ ] Define conventions for SQL filenames, row records, row mappers, repositories, services, controllers, and response records.
-- [ ] Add a repository integration-test fixture with the smallest practical SQLite schema and data needed for deterministic tests.
-- [ ] Ensure tests never write to the source Olist database.
-- [ ] Add response types for column-oriented, split/matrix, record-oriented, and chart-specific JSON shapes.
-- [ ] Configure Jackson deliberately for date values, property names, numeric values, and null serialization.
-- [ ] Add centralized exception handling that returns an appropriate non-2xx response without exposing raw internal exception text.
-- [ ] Document the intentional error-response difference from FastAPI handlers that currently return `{"error": ...}` with HTTP 200.
-- [ ] Add controller-test helpers for exact JSON keys and array dimensions.
-- [ ] Define a documented floating-point comparison policy for parity tests.
-- [ ] Design a repeatable parity harness that can compare FastAPI and Spring responses semantically using configurable base URLs.
+- [x] Configure the SQLite `DataSource` and `NamedParameterJdbcTemplate`.
+- [x] Decide and document whether the production connection should be explicitly read-only and whether the pool size needs a SQLite-specific limit.
+- [x] Add a consistent mechanism for loading SQL from `src/main/resources/sql/`.
+- [x] Define conventions for SQL filenames, row records, row mappers, repositories, services, controllers, and response records.
+- [x] Add a repository integration-test fixture with the smallest practical SQLite schema and data needed for deterministic tests.
+- [x] Ensure tests never write to the source Olist database.
+- [x] Add response types for column-oriented, split/matrix, record-oriented, and chart-specific JSON shapes.
+- [x] Configure Jackson deliberately for date values, property names, numeric values, and null serialization.
+- [x] Add centralized exception handling that returns an appropriate non-2xx response without exposing raw internal exception text.
+- [x] Document the intentional error-response difference from FastAPI handlers that currently return `{"error": ...}` with HTTP 200.
+- [x] Add controller-test helpers for exact JSON keys and array dimensions.
+- [x] Define a documented floating-point comparison policy for parity tests.
+- [x] Design a repeatable parity harness that can compare FastAPI and Spring responses semantically using configurable base URLs.
 
 ### Testing Steps
 
@@ -171,11 +171,11 @@ Goal: establish reusable infrastructure before porting feature endpoints.
 
 ### Acceptance Criteria
 
-- [ ] SQL resources can be loaded consistently in production and tests.
-- [ ] Repository tests use an isolated writable test fixture, never the source database.
-- [ ] Shared response structures serialize to the documented JSON shapes.
-- [ ] Error handling and floating-point comparison policies are documented.
-- [ ] `./mvnw test` passes.
+- [x] SQL resources can be loaded consistently in production and tests.
+- [x] Repository tests use an isolated writable test fixture, never the source database.
+- [x] Shared response structures serialize to the documented JSON shapes.
+- [x] Error handling and floating-point comparison policies are documented.
+- [x] `./mvnw test` passes.
 
 ## Milestone 3 — Port Direct SQL Endpoints
 
