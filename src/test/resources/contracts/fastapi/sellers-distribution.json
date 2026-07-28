@@ -1,0 +1,14 @@
+{
+  "bucket": [
+    "1-9 orders",
+    "10-99 orders",
+    "100-999 orders",
+    "1000+ orders"
+  ],
+  "seller_count": [
+    1714,
+    1142,
+    226,
+    13
+  ]
+}

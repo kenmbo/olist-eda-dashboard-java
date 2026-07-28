@@ -1,0 +1,24 @@
+{
+  "origins": [
+    "Other Publicities",
+    "Display",
+    "Referral",
+    "Email",
+    "Direct Traffic",
+    "Unknown",
+    "Social",
+    "Paid Search",
+    "Organic Search"
+  ],
+  "leads": [
+    65,
+    118,
+    284,
+    493,
+    499,
+    1099,
+    1350,
+    1586,
+    2296
+  ]
+}
