@@ -183,16 +183,16 @@ Goal: migrate endpoints that primarily execute SQL and return column-oriented da
 
 ### Tasks
 
-- [ ] Port `GET /api/orders/daily` with `day` and `order_count` arrays.
-- [ ] Port `GET /api/orders/costs` with `order_id`, `product_cost`, and `shipping_cost` arrays.
-- [ ] Port `GET /api/categories/sales` with `category` and `sales` arrays, including the `Other categories` row.
-- [ ] Port `GET /api/sellers/performance` with `seller_id`, `avg_review_score`, `total_sales`, and `num_orders` arrays.
-- [ ] Port `GET /api/sellers/distribution` with `bucket` and `seller_count` arrays.
-- [ ] Port `GET /api/shipping/stages-by-city` with the exact source city and delivery-stage arrays and ordering.
-- [ ] Port `GET /api/customers/clv-map`, preserving the exact `avg_CLV` property capitalization and geographic arrays.
-- [ ] For each endpoint, add its SQL resource, row mapping, repository method, service method, controller method, and response record.
-- [ ] For each endpoint, add repository integration tests and MockMvc contract tests.
-- [ ] Compare each endpoint with FastAPI against the same full database.
+- [x] Port `GET /api/orders/daily` with `day` and `order_count` arrays.
+- [x] Port `GET /api/orders/costs` with `order_id`, `product_cost`, and `shipping_cost` arrays.
+- [x] Port `GET /api/categories/sales` with `category` and `sales` arrays, including the `Other categories` row.
+- [x] Port `GET /api/sellers/performance` with `seller_id`, `avg_review_score`, `total_sales`, and `num_orders` arrays.
+- [x] Port `GET /api/sellers/distribution` with `bucket` and `seller_count` arrays.
+- [x] Port `GET /api/shipping/stages-by-city` with the exact source city and delivery-stage arrays and ordering.
+- [x] Port `GET /api/customers/clv-map`, preserving the exact `avg_CLV` property capitalization and geographic arrays.
+- [x] For each endpoint, add its SQL resource, row mapping, repository method, service method, controller method, and response record.
+- [x] For each endpoint, add repository integration tests and MockMvc contract tests.
+- [x] Compare each endpoint with FastAPI against the same full database.
 
 ### Testing Steps
 
@@ -203,10 +203,10 @@ Goal: migrate endpoints that primarily execute SQL and return column-oriented da
 
 ### Acceptance Criteria
 
-- [ ] All seven paths and methods match FastAPI.
-- [ ] Successful responses have the same content type, JSON keys, array lengths, and ordering as the baseline.
-- [ ] Integer identifiers/counts remain integers and floating-point fields meet the documented tolerance.
-- [ ] Repository, controller, and parity tests pass for all seven endpoints.
+- [x] All seven paths and methods match FastAPI.
+- [x] Successful responses have the same content type, JSON keys, array lengths, and ordering as the baseline.
+- [x] Integer identifiers/counts remain integers and floating-point fields meet the documented tolerance.
+- [x] Repository, controller, and parity tests pass for all seven endpoints.
 
 ## Milestone 4 — Port Light Formatting Endpoints
 
