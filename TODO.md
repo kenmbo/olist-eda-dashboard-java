@@ -76,19 +76,19 @@ Goal: establish a reproducible source reference before writing the Spring implem
 
 ### Tasks
 
-- [ ] Record the source repository commit hash in `docs/migration-baseline.md`.
-- [ ] Record the SQLite database filename, size, and SHA-256 hash in `docs/migration-baseline.md` without copying the database into the Java repository.
+- [x] Record the source repository commit hash in `docs/migration-baseline.md`.
+- [x] Record the SQLite database filename, size, and SHA-256 hash in `docs/migration-baseline.md` without copying the database into the Java repository.
 - [x] Confirm the FastAPI backend starts from the source repository against the canonical database.
 - [x] Run every in-scope FastAPI endpoint and record whether it succeeds.
-- [ ] Create `docs/api-contracts.md` with each in-scope endpoint's path, status, content type, JSON keys, orientation, ordering, date representation, null behavior, and important numeric behavior.
+- [x] Create `docs/api-contracts.md` with each in-scope endpoint's path, status, content type, JSON keys, orientation, ordering, date representation, null behavior, and important numeric behavior.
 - [x] Capture compact representative JSON fixtures under `src/test/resources/contracts/fastapi/`; avoid committing full-dataset responses when they are excessively large.
 - [x] Record full-response counts, array lengths, matrix dimensions, and other invariants for large endpoints.
-- [ ] Record the observed Sunday-first weekday behavior of `/api/orders/hourly`.
-- [ ] Record the exact serialized `year_month` representation returned by `/api/sales/monthly`.
-- [ ] Record category and month ordering for `/api/categories/monthly-sales`.
+- [x] Record the observed Sunday-first weekday behavior of `/api/orders/hourly`.
+- [x] Record the exact serialized `year_month` representation returned by `/api/sales/monthly`.
+- [x] Record category and month ordering for `/api/categories/monthly-sales`.
 - [x] Confirm the filtered `/api/categories/weights` handler is the migration contract and capture its top-five category order and filtered array lengths.
 - [x] Record the source's successful-response floating-point values at enough precision to define comparison tolerances.
-- [ ] Mark the five deferred endpoints in `docs/api-contracts.md` and do not treat their absence from Spring as a parity failure.
+- [x] Mark the five deferred endpoints in `docs/api-contracts.md` and do not treat their absence from Spring as a parity failure.
 
 ### Testing Steps
 
