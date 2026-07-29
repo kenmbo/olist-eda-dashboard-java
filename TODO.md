@@ -297,12 +297,12 @@ Goal: reproduce pandas pivots, matrices, date shaping, and outlier filters in te
 
 ### Acceptance Criteria
 
-- [ ] All five endpoints reproduce their baseline JSON shape and ordering.
-- [ ] Matrix and pivot dimensions match exactly.
-- [ ] Date serialization matches the captured FastAPI behavior.
-- [ ] IQR and category-weight retained sets match FastAPI for the full dataset.
-- [ ] Transformation, repository, controller, and parity tests pass.
-- [ ] `./mvnw test` passes.
+- [x] All five endpoints reproduce their baseline JSON shape and ordering.
+- [x] Matrix and pivot dimensions match exactly.
+- [x] Date serialization matches the captured FastAPI behavior.
+- [x] IQR and category-weight retained sets match FastAPI for the full dataset.
+- [x] Transformation, repository, controller, and parity tests pass.
+- [x] `./mvnw test` passes.
 
 ## Milestone 6 — Full Verification, Packaging, And Cutover Readiness
 
@@ -317,11 +317,13 @@ Goal: prove that the Spring backend can replace FastAPI for the agreed main scop
 - [ ] Confirm deferred endpoints are documented and are not represented as completed Spring features.
 - [ ] Add a production-ready executable JAR build.
 - [ ] Add a container build that uses an externally supplied database path; do not bake the local database or download it during image construction without approval.
-- [ ] Add a target-repository `README.md` covering prerequisites, configuration, local startup, tests, parity checks, JAR execution, and container execution.
+- [~] Add a target-repository `README.md` covering prerequisites, configuration, local startup, tests, parity checks, JAR execution, and container execution.
 - [ ] Document all approved differences from the Python backend.
 - [ ] Verify secrets, databases, local fixtures, and generated comparison output are not accidentally tracked.
 - [ ] Keep the Python backend available until the user approves final cutover.
 
+
+README.md currently does not have information on container execution and CORS full verification testing yet.
 ### Testing Steps
 
 1. Run `./mvnw clean verify`.
