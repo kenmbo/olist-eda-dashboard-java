@@ -263,7 +263,7 @@ Goal: reproduce pandas pivots, matrices, date shaping, and outlier filters in te
 - [x] Build the split response with months as `index`, categories as `columns`, and sales as `data`.
 - [x] Preserve observed category and month ordering.
 - [x] Fill missing category/month cells with numeric zero.
-- [~] Add tests for top-five selection, ties, missing cells, ordering, and matrix dimensions.
+- [x] Add tests for top-five selection, ties, missing cells, ordering, and matrix dimensions.
 
 ### 5D — Seller Shipping IQR Filter
 
@@ -273,7 +273,7 @@ Goal: reproduce pandas pivots, matrices, date shaping, and outlier filters in te
 - [x] Reproduce pandas' default quantile interpolation behavior.
 - [x] Retain values within the inclusive interval `Q1 - 1.5 * IQR` through `Q3 + 1.5 * IQR`.
 - [x] Preserve source row/group ordering as defined by the baseline contract.
-- [~] Add tests for each bucket, small groups, repeated values, exact boundaries, and upper/lower outliers.
+- [x] Add tests for each bucket, small groups, repeated values, exact boundaries, and upper/lower outliers.
 
 ### 5E — Filtered Category Weights
 
@@ -285,7 +285,7 @@ Goal: reproduce pandas pivots, matrices, date shaping, and outlier filters in te
 - [x] Retain values within the inclusive interval `mean - 0.8 * stddev` through `mean + 0.8 * stddev`.
 - [x] Retain a one-value group when sample standard deviation cannot be computed, matching effective pandas behavior.
 - [x] Preserve the baseline category key order and resolve ties according to observed FastAPI output.
-- [~] Add tests for top-five selection, ties, repeated values, one-value groups, exact boundaries, and outliers on both sides.
+- [x] Add tests for top-five selection, ties, repeated values, one-value groups, exact boundaries, and outliers on both sides.
 
 ### Testing Steps
 
