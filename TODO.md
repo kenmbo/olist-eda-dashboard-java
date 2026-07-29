@@ -4,8 +4,6 @@
 
 Migrate the Olist analytics API from Python/FastAPI to Java/Spring Boot without requiring the existing Plotly frontend to change its successful API contracts.
 
-This file is an execution checklist for future Codex coding agents. Read `AGENTS.md` and the source backend architecture document before starting any milestone.
-
 ## Repository References
 
 - Source Python repository (`olist-eda-dashboard`): `/home/kebo/python/olist-migration/olist-eda-dashboard`
@@ -260,34 +258,34 @@ Goal: reproduce pandas pivots, matrices, date shaping, and outlier filters in te
 
 ### 5C — Monthly Category Sales Pivot
 
-- [ ] Port `GET /api/categories/monthly-sales`.
-- [ ] Determine the top five raw categories by total delivered sales.
-- [ ] Build the split response with months as `index`, categories as `columns`, and sales as `data`.
-- [ ] Preserve observed category and month ordering.
-- [ ] Fill missing category/month cells with numeric zero.
-- [ ] Add tests for top-five selection, ties, missing cells, ordering, and matrix dimensions.
+- [x] Port `GET /api/categories/monthly-sales`.
+- [x] Determine the top five raw categories by total delivered sales.
+- [x] Build the split response with months as `index`, categories as `columns`, and sales as `data`.
+- [x] Preserve observed category and month ordering.
+- [x] Fill missing category/month cells with numeric zero.
+- [~] Add tests for top-five selection, ties, missing cells, ordering, and matrix dimensions.
 
 ### 5D — Seller Shipping IQR Filter
 
-- [ ] Port `GET /api/sellers/shipping-times`.
-- [ ] Preserve seller volume buckets from the source SQL.
-- [ ] Calculate Q1, Q3, and IQR independently per bucket.
-- [ ] Reproduce pandas' default quantile interpolation behavior.
-- [ ] Retain values within the inclusive interval `Q1 - 1.5 * IQR` through `Q3 + 1.5 * IQR`.
-- [ ] Preserve source row/group ordering as defined by the baseline contract.
-- [ ] Add tests for each bucket, small groups, repeated values, exact boundaries, and upper/lower outliers.
+- [x] Port `GET /api/sellers/shipping-times`.
+- [x] Preserve seller volume buckets from the source SQL.
+- [x] Calculate Q1, Q3, and IQR independently per bucket.
+- [x] Reproduce pandas' default quantile interpolation behavior.
+- [x] Retain values within the inclusive interval `Q1 - 1.5 * IQR` through `Q3 + 1.5 * IQR`.
+- [x] Preserve source row/group ordering as defined by the baseline contract.
+- [~] Add tests for each bucket, small groups, repeated values, exact boundaries, and upper/lower outliers.
 
 ### 5E — Filtered Category Weights
 
-- [ ] Port `GET /api/categories/weights` using the filtered Python implementation selected by the user.
-- [ ] Query non-null raw product category names and weights with the source join behavior.
-- [ ] Select the five categories with the greatest occurrence counts.
-- [ ] Preserve repeated weight observations produced by `order_items`.
-- [ ] Compute the mean and sample standard deviation (`ddof=1`) independently per category.
-- [ ] Retain values within the inclusive interval `mean - 0.8 * stddev` through `mean + 0.8 * stddev`.
-- [ ] Retain a one-value group when sample standard deviation cannot be computed, matching effective pandas behavior.
-- [ ] Preserve the baseline category key order and resolve ties according to observed FastAPI output.
-- [ ] Add tests for top-five selection, ties, repeated values, one-value groups, exact boundaries, and outliers on both sides.
+- [x] Port `GET /api/categories/weights` using the filtered Python implementation selected by the user.
+- [x] Query non-null raw product category names and weights with the source join behavior.
+- [x] Select the five categories with the greatest occurrence counts.
+- [x] Preserve repeated weight observations produced by `order_items`.
+- [x] Compute the mean and sample standard deviation (`ddof=1`) independently per category.
+- [x] Retain values within the inclusive interval `mean - 0.8 * stddev` through `mean + 0.8 * stddev`.
+- [x] Retain a one-value group when sample standard deviation cannot be computed, matching effective pandas behavior.
+- [x] Preserve the baseline category key order and resolve ties according to observed FastAPI output.
+- [~] Add tests for top-five selection, ties, repeated values, one-value groups, exact boundaries, and outliers on both sides.
 
 ### Testing Steps
 

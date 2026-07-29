@@ -1,0 +1,84 @@
+INSERT INTO orders VALUES ('hour-sun', 'created', '2016-01-03 00:00:00', NULL);
+INSERT INTO orders VALUES ('hour-mon', 'created', '2016-01-04 01:00:00', NULL);
+INSERT INTO orders VALUES ('hour-tue', 'created', '2016-01-05 02:00:00', NULL);
+INSERT INTO orders VALUES ('hour-wed', 'created', '2016-01-06 03:00:00', NULL);
+INSERT INTO orders VALUES ('hour-thu', 'created', '2016-01-07 04:00:00', NULL);
+INSERT INTO orders VALUES ('hour-fri', 'created', '2016-01-08 05:00:00', NULL);
+INSERT INTO orders VALUES ('hour-sat', 'created', '2016-01-09 06:00:00', NULL);
+
+INSERT INTO products VALUES ('monthly-health', 'monthly_health', 10);
+INSERT INTO products VALUES ('monthly-auto', 'monthly_auto', 20);
+INSERT INTO products VALUES ('monthly-toys', 'monthly_toys', 30);
+INSERT INTO products VALUES ('monthly-electronics', 'monthly_electronics', 40);
+INSERT INTO products VALUES ('monthly-shoes', 'monthly_shoes', 50);
+INSERT INTO products VALUES ('monthly-untranslated', 'monthly_untranslated', 60);
+INSERT INTO product_category_name_translation VALUES ('monthly_health', 'health_beauty');
+INSERT INTO product_category_name_translation VALUES ('monthly_auto', 'auto');
+INSERT INTO product_category_name_translation VALUES ('monthly_toys', 'toys');
+INSERT INTO product_category_name_translation VALUES ('monthly_electronics', 'electronics');
+INSERT INTO product_category_name_translation VALUES ('monthly_shoes', 'fashion_shoes');
+
+INSERT INTO orders VALUES ('month-jan', 'canceled', '2017-01-15 10:00:00', NULL);
+INSERT INTO order_items VALUES ('month-jan', 1, 'monthly-health', 'monthly-seller', 10.0);
+INSERT INTO order_items VALUES ('month-jan', 2, 'monthly-auto', 'monthly-seller', 20.0);
+INSERT INTO order_items VALUES ('month-jan', 3, 'monthly-toys', 'monthly-seller', 30.0);
+INSERT INTO order_items VALUES ('month-jan', 4, 'monthly-electronics', 'monthly-seller', 40.0);
+INSERT INTO order_items VALUES ('month-jan', 5, 'monthly-shoes', 'monthly-seller', 50.0);
+
+INSERT INTO orders VALUES ('month-feb', 'delivered', '2017-02-15 11:00:00', '2017-02-18 11:00:00');
+INSERT INTO order_items VALUES ('month-feb', 1, 'monthly-health', 'monthly-seller', 1.0);
+INSERT INTO order_items VALUES ('month-feb', 2, 'monthly-auto', 'monthly-seller', 2.0);
+INSERT INTO order_items VALUES ('month-feb', 3, 'monthly-toys', 'monthly-seller', 3.0);
+INSERT INTO order_items VALUES ('month-feb', 4, 'monthly-electronics', 'monthly-seller', 4.0);
+
+INSERT INTO orders VALUES ('month-old', 'delivered', '2016-12-15 12:00:00', '2016-12-18 12:00:00');
+INSERT INTO order_items VALUES ('month-old', 1, 'monthly-health', 'monthly-seller', 999.0);
+INSERT INTO orders VALUES ('month-untranslated', 'delivered', '2017-01-20 12:00:00', '2017-01-21 12:00:00');
+INSERT INTO order_items VALUES ('month-untranslated', 1, 'monthly-untranslated', 'monthly-seller', 999.0);
+
+INSERT INTO products VALUES ('pivot-a', 'pivot_a', 100);
+INSERT INTO products VALUES ('pivot-b', 'pivot_b', 101);
+INSERT INTO products VALUES ('pivot-c', 'pivot_c', 102);
+INSERT INTO products VALUES ('pivot-d', 'pivot_d', 103);
+INSERT INTO products VALUES ('pivot-e', 'pivot_e', 104);
+INSERT INTO products VALUES ('pivot-f', 'pivot_f', 105);
+INSERT INTO orders VALUES ('pivot-jan', 'delivered', '2017-01-01 08:00:00', '2017-01-03 08:00:00');
+INSERT INTO order_items VALUES ('pivot-jan', 1, 'pivot-a', 'pivot-seller', 100.0);
+INSERT INTO order_items VALUES ('pivot-jan', 2, 'pivot-b', 'pivot-seller', 90.0);
+INSERT INTO order_items VALUES ('pivot-jan', 3, 'pivot-c', 'pivot-seller', 80.0);
+INSERT INTO order_items VALUES ('pivot-jan', 4, 'pivot-d', 'pivot-seller', 70.0);
+INSERT INTO order_items VALUES ('pivot-jan', 5, 'pivot-e', 'pivot-seller', 60.0);
+INSERT INTO order_items VALUES ('pivot-jan', 6, 'pivot-f', 'pivot-seller', 50.0);
+INSERT INTO orders VALUES ('pivot-mar', 'delivered', '2017-03-01 08:00:00', '2017-03-04 08:00:00');
+INSERT INTO order_items VALUES ('pivot-mar', 1, 'pivot-a', 'pivot-seller', 1.0);
+INSERT INTO order_items VALUES ('pivot-mar', 2, 'pivot-c', 'pivot-seller', 2.0);
+
+INSERT INTO products VALUES ('weight-low', 'weight_edge', 0);
+INSERT INTO products VALUES ('weight-one', 'weight_edge', 1);
+INSERT INTO products VALUES ('weight-four', 'weight_edge', 4);
+INSERT INTO products VALUES ('weight-eight', 'weight_edge', 8);
+INSERT INTO products VALUES ('weight-high', 'weight_edge', 12);
+INSERT INTO orders VALUES ('weights-order', 'created', '2017-04-01 08:00:00', NULL);
+INSERT INTO order_items VALUES ('weights-order', 1, 'weight-low', 'weight-seller', 1.0);
+INSERT INTO order_items VALUES ('weights-order', 2, 'weight-one', 'weight-seller', 1.0);
+INSERT INTO order_items VALUES ('weights-order', 3, 'weight-one', 'weight-seller', 1.0);
+INSERT INTO order_items VALUES ('weights-order', 4, 'weight-four', 'weight-seller', 1.0);
+INSERT INTO order_items VALUES ('weights-order', 5, 'weight-eight', 'weight-seller', 1.0);
+INSERT INTO order_items VALUES ('weights-order', 6, 'weight-high', 'weight-seller', 1.0);
+
+INSERT INTO products VALUES ('shipping-product', 'shipping_category', 200);
+INSERT INTO orders VALUES ('shipping-medium', 'delivered', '2017-05-01 00:00:00', '2017-05-06 00:00:00');
+INSERT INTO order_items VALUES ('shipping-medium', 1, 'shipping-product', 'seller-medium', 1.0);
+INSERT INTO order_items VALUES ('shipping-medium', 2, 'shipping-product', 'seller-medium', 1.0);
+INSERT INTO order_items VALUES ('shipping-medium', 3, 'shipping-product', 'seller-medium', 1.0);
+INSERT INTO order_items VALUES ('shipping-medium', 4, 'shipping-product', 'seller-medium', 1.0);
+INSERT INTO order_items VALUES ('shipping-medium', 5, 'shipping-product', 'seller-medium', 1.0);
+INSERT INTO order_items VALUES ('shipping-medium', 6, 'shipping-product', 'seller-medium', 1.0);
+INSERT INTO order_items VALUES ('shipping-medium', 7, 'shipping-product', 'seller-medium', 1.0);
+INSERT INTO order_items VALUES ('shipping-medium', 8, 'shipping-product', 'seller-medium', 1.0);
+INSERT INTO order_items VALUES ('shipping-medium', 9, 'shipping-product', 'seller-medium', 1.0);
+INSERT INTO order_items VALUES ('shipping-medium', 10, 'shipping-product', 'seller-medium', 1.0);
+INSERT INTO orders VALUES ('shipping-null', 'delivered', '2017-05-02 00:00:00', NULL);
+INSERT INTO order_items VALUES ('shipping-null', 1, 'shipping-product', 'seller-medium', 1.0);
+INSERT INTO orders VALUES ('shipping-small', 'delivered', '2017-05-03 00:00:00', '2017-05-05 00:00:00');
+INSERT INTO order_items VALUES ('shipping-small', 1, 'shipping-product', 'seller-small', 1.0);
