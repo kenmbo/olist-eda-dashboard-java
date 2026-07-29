@@ -100,10 +100,10 @@ Goal: establish a reproducible source reference before writing the Spring implem
 
 ### Acceptance Criteria
 
-- [ ] The source commit and database hash are recorded.
+- [x] The source commit and database hash are recorded.
 - [x] All 17 in-scope endpoints have an explicit successful-response contract or a documented source blocker.
 - [x] Large-response invariants and representative fixtures are available without committing the full Olist database.
-- [ ] Date, ordering, label, null, and numeric comparison rules are documented.
+- [x] Date, ordering, label, null, and numeric comparison rules are documented.
 - [x] Deferred endpoints are clearly excluded from main-migration parity checks.
 
 ## Milestone 1 — Scaffold The Spring Boot Application
@@ -214,16 +214,16 @@ Goal: migrate endpoints that add labels, title-casing, rounding, or chart-specif
 
 ### Tasks
 
-- [ ] Port `GET /api/sellers/review-sales` with `seller_ids`, `total_sales`, `avg_scores`, and `order_counts`.
-- [ ] Match pandas two-decimal rounding behavior for seller total sales and average scores; verify tie/half behavior from fixtures rather than assuming a rounding mode.
-- [ ] Port `GET /api/leads/conversion` with origin cleanup and the four custom arrays.
-- [ ] Port `GET /api/leads/origin` with source filtering, ordering, and cleaned origin labels.
-- [ ] Port `GET /api/reviews/distribution` with exact labels such as `1 ★` and the `scores`/`counts` arrays.
-- [ ] Port `GET /api/delivery/stages` with title-cased cities and approval, carrier, and transit arrays.
-- [ ] Implement shared text formatting only when it reproduces pandas string behavior for the captured values.
-- [ ] Add service unit tests for title-casing, underscore replacement, star labels, rounding, empty results, and null handling.
-- [ ] Add repository integration tests and MockMvc contract tests for all five endpoints.
-- [ ] Compare all five endpoints with FastAPI against the same full database.
+- [x] Port `GET /api/sellers/review-sales` with `seller_ids`, `total_sales`, `avg_scores`, and `order_counts`.
+- [x] Match pandas two-decimal rounding behavior for seller total sales and average scores; verify tie/half behavior from fixtures rather than assuming a rounding mode.
+- [x] Port `GET /api/leads/conversion` with origin cleanup and the four custom arrays.
+- [x] Port `GET /api/leads/origin` with source filtering, ordering, and cleaned origin labels.
+- [x] Port `GET /api/reviews/distribution` with exact labels such as `1 ★` and the `scores`/`counts` arrays.
+- [x] Port `GET /api/delivery/stages` with title-cased cities and approval, carrier, and transit arrays.
+- [x] Implement shared text formatting only when it reproduces pandas string behavior for the captured values.
+- [x] Add service unit tests for title-casing, underscore replacement, star labels, rounding, empty results, and null handling.
+- [x] Add repository integration tests and MockMvc contract tests for all five endpoints.
+- [x] Compare all five endpoints with FastAPI against the same full database.
 
 ### Testing Steps
 
@@ -234,10 +234,10 @@ Goal: migrate endpoints that add labels, title-casing, rounding, or chart-specif
 
 ### Acceptance Criteria
 
-- [ ] All five successful response shapes match the baseline exactly.
-- [ ] Label cleanup, title-casing, and star formatting match FastAPI.
-- [ ] Rounded values meet the baseline's exact or documented tolerant comparison.
-- [ ] Unit, repository, controller, and parity tests pass.
+- [x] All five successful response shapes match the baseline exactly.
+- [x] Label cleanup, title-casing, and star formatting match FastAPI.
+- [x] Rounded values meet the baseline's exact or documented tolerant comparison.
+- [x] Unit, repository, controller, and parity tests pass.
 
 ## Milestone 5 — Port Deterministic Reshaping And Filtering
 
