@@ -253,10 +253,10 @@ Goal: reproduce pandas pivots, matrices, date shaping, and outlier filters in te
 
 ### 5B — Monthly Sales
 
-- [ ] Port `GET /api/sales/monthly` for the five fixed translated categories.
-- [ ] Preserve the exact baseline `year_month` serialization rather than choosing a cleaner format during migration.
-- [ ] Preserve category property names, null values, and month ordering.
-- [ ] Add date serialization and missing-category-value tests.
+- [x] Port `GET /api/sales/monthly` for the five fixed translated categories.
+- [x] Preserve the exact baseline `year_month` serialization rather than choosing a cleaner format during migration.
+- [x] Preserve category property names, null values, and month ordering.
+- [x] Add date serialization and missing-category-value tests.
 
 ### 5C — Monthly Category Sales Pivot
 
