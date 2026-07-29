@@ -1,5 +1,6 @@
 package com.olist.dashboard.repository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -23,6 +24,20 @@ public class OrdersRepository {
                 (resultSet, rowNumber) -> new OrderDailyRow(
                         resultSet.getString("day"),
                         resultSet.getLong("order_count")));
+    }
+
+    /** Maps all explicitly named source hour columns without changing weekday or SQL row order. */
+    public List<HourlyOrderRow> findHourlyOrderCounts() {
+        return sqlQueryExecutor.query(
+                "orders/hourly.sql",
+                Map.of(),
+                (resultSet, rowNumber) -> {
+                    var hourlyCounts = new ArrayList<Long>(24);
+                    for (int hour = 0; hour < 24; hour++) {
+                        hourlyCounts.add(resultSet.getLong(Integer.toString(hour)));
+                    }
+                    return new HourlyOrderRow(resultSet.getString("day_of_week_name"), hourlyCounts);
+                });
     }
 
     /** Preserves the source delivered-order filter, aggregation, and result order. */

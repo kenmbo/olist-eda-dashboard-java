@@ -245,11 +245,11 @@ Goal: reproduce pandas pivots, matrices, date shaping, and outlier filters in te
 
 ### 5A — Hourly Orders Matrix
 
-- [ ] Port `GET /api/orders/hourly`.
-- [ ] Preserve the split response with `index`, `columns`, and `data`.
-- [ ] Preserve 24 hour columns and the observed source column types.
-- [ ] Preserve the source weekday order, including SQLite Sunday value `0` behavior.
-- [ ] Add matrix dimension, zero-count, weekday-order, and JSON contract tests.
+- [x] Port `GET /api/orders/hourly`.
+- [x] Preserve the split response with `index`, `columns`, and `data`.
+- [x] Preserve 24 hour columns and the observed source column types.
+- [x] Preserve the source weekday order, including SQLite Sunday value `0` behavior.
+- [x] Add matrix dimension, zero-count, weekday-order, and JSON contract tests.
 
 ### 5B — Monthly Sales
 
