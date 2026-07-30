@@ -310,17 +310,17 @@ Goal: prove that the Spring backend can replace FastAPI for the agreed main scop
 
 ### Tasks
 
-- [ ] Run all 17 in-scope endpoints in FastAPI and Spring against the same database.
-- [ ] Run the complete semantic parity suite and store a concise report under `docs/`.
-- [ ] Verify CORS with an allowed frontend origin and with an unconfigured origin.
-- [ ] Smoke-test every affected Plotly chart against Spring without redesigning the frontend.
-- [ ] Confirm deferred endpoints are documented and are not represented as completed Spring features.
-- [ ] Add a production-ready executable JAR build.
+- [x] Run all 17 in-scope endpoints in FastAPI and Spring against the same database.
+- [x] Run the complete semantic parity suite and store a concise report under `docs/`.
+- [x] Verify CORS with an allowed frontend origin and with an unconfigured origin.
+- [x] Smoke-test every affected Plotly chart against Spring without redesigning the frontend.
+- [x] Confirm deferred endpoints are documented and are not represented as completed Spring features.
+- [x] Add a production-ready executable JAR build.
 - [ ] Add a container build that uses an externally supplied database path; do not bake the local database or download it during image construction without approval.
 - [~] Add a target-repository `README.md` covering prerequisites, configuration, local startup, tests, parity checks, JAR execution, and container execution.
 - [ ] Document all approved differences from the Python backend.
 - [ ] Verify secrets, databases, local fixtures, and generated comparison output are not accidentally tracked.
-- [ ] Keep the Python backend available until the user approves final cutover.
+- [x] Keep the Python backend available until the user approves final cutover.
 
 
 README.md currently does not have information on container execution and CORS full verification testing yet.

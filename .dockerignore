@@ -1,0 +1,18 @@
+# Keep the already-built executable JAR, but exclude all other Maven output from the image context.
+target/*
+!target/olist-eda-dashboard-spring-0.0.1-SNAPSHOT.jar
+
+# Never send databases, local configuration, source control, or generated reports to the daemon.
+.git
+.idea
+.vscode
+.env
+.env.*
+!.env.example
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+data
+parity-output
+reports
