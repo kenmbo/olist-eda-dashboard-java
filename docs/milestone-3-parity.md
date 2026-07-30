@@ -7,7 +7,7 @@ No database copy was added to this repository.
 
 ## Verified full-database results
 
-On 2026-07-28, the live semantic parity harness compared FastAPI and Spring
+On 2026-07-24, the live semantic parity harness compared FastAPI and Spring
 against that same database. Each response returned HTTP `200` and exactly
 `application/json`; the harness then compared complete parsed responses. It
 requires exact object-key sequence, array lengths and order, strings, nulls,
@@ -87,7 +87,6 @@ the verification.
 No Milestone 4 or 5 endpoint was added. LOWESS, regression, forecasting, RFM,
 and daily shipping average remain out of scope as recorded in `TODO.md`.
 
-At the final audit, the source repository contained a separately staged
-`src/queries.py` addition named `monthly_sales_history`. It is outside this
-milestone, was not included in the Spring change set, and was preserved
-untouched.
+The source repository was treated as read-only. Any independently present
+source-worktree changes were neither changed nor included in this Spring
+milestone.
