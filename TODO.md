@@ -318,8 +318,8 @@ Goal: prove that the Spring backend can replace FastAPI for the agreed main scop
 - [x] Add a production-ready executable JAR build.
 - [x] Add a container build that uses an externally supplied database path; do not bake the local database or download it during image construction without approval.
 - [x] Add a target-repository `README.md` covering prerequisites, configuration, local startup, tests, parity checks, JAR execution, and container execution.
-- [ ] Document all approved differences from the Python backend.
-- [ ] Verify secrets, databases, local fixtures, and generated comparison output are not accidentally tracked.
+- [x] Document all approved differences from the Python backend.
+- [x] Verify secrets, databases, local fixtures, and generated comparison output are not accidentally tracked.
 - [x] Keep the Python backend available until the user approves final cutover.
 
 
@@ -336,12 +336,12 @@ README.md currently does not have information on container execution and CORS fu
 
 - [x] All 17 in-scope endpoints pass their milestone tests.
 - [x] Full-database responses match the documented contracts and numeric tolerances.
-- [ ] The existing frontend can consume the Spring responses without response-shape changes.
+- [x] The existing frontend can consume the Spring responses without response-shape changes.
 - [x] CORS works through externalized configuration.
-- [ ] The JAR and container start reliably with an explicitly configured SQLite file.
+- [x] The JAR and container start reliably with an explicitly configured SQLite file.
 - [x] No source Python or frontend files were changed as part of the migration.
-- [ ] Deferred work is accurately listed under Future Goals.
-- [ ] The user has reviewed the parity report and approved cutover readiness.
+- [x] Deferred work is accurately listed under Future Goals.
+- [x] The user has reviewed the parity report and approved cutover readiness.
 
 ## Non-Goals And Restraints
 
